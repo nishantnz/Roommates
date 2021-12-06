@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="209dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:contentDescription="logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/roommates" />
+
+    <Button
+        android:id="@+id/emailButton"
+        android:layout_width="216dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="57dp"
+        android:text="Log in with email id or sign up"
+        android:textColor="#F1E6E6"
+        android:textSize="14sp"
+        app:backgroundTint="#170101"
+        app:cornerRadius="45dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/phoneButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="log in with phone number"
+        android:textColor="#F1E6E6"
+        android:textSize="14sp"
+        app:backgroundTint="#170101"
+        app:cornerRadius="45dp"
+        app:layout_constraintEnd_toEndOf="@+id/emailButton"
+        app:layout_constraintStart_toStartOf="@+id/emailButton"
+        app:layout_constraintTop_toBottomOf="@+id/emailButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

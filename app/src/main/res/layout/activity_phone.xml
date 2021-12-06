@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Phone">
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/ccp"
+        android:layout_width="143dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/input_bg"
+        android:paddingTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/t1"
+        android:layout_width="210dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/input_bg"
+        android:hint="Enter Mobile"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toEndOf="@+id/ccp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="201dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="76dp"
+        android:text="Get OTP"
+        android:textColor="#F1ECEC"
+        app:backgroundTint="#000000"
+        app:cornerRadius="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="209dp"
+        android:layout_height="121dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:contentDescription="logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/roommates" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

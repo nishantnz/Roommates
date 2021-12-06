@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "574970499161",
+    "project_id": "phoneauthentication-828a7",
+    "storage_bucket": "phoneauthentication-828a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574970499161:android:f0feec4240a98fd6eba148",
+        "android_client_info": {
+          "package_name": "com.example.phoneverification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574970499161-jhu5q3g181mpgjqaqe6i766ej2p3thna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phoneverification",
+            "certificate_hash": "1e0090ac0a8d0384b63f72ab321cc491e78125ce"
+          }
+        },
+        {
+          "client_id": "574970499161-r7kj0ppaso9ef6cf6o7s4d3ngns3poq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACzzV93djPvLHH3nIaX6sdC8o18OVh5Qk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574970499161-r7kj0ppaso9ef6cf6o7s4d3ngns3poq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
