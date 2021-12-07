@@ -35,7 +35,8 @@ public class Phone extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (t1.getText().toString().trim().length() != 10) {
+                String tOne = t1.getText().toString().trim().replace(" ", "");
+                if (tOne.length() != 10) {
                     Toast.makeText(getApplicationContext(), "Please Enter Valid Mobile Number", Toast.LENGTH_LONG).show();
                 } else {
                     dialog1.show();
