@@ -93,9 +93,15 @@ public class manageOtp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(manageOtp.this, profile.class));
-                            Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
-                            finish();
+                            if (task.getResult().getAdditionalUserInfo().isNewUser()) {
+                                startActivity(new Intent(manageOtp.this, profile.class));
+                                Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
+                                finish();
+                            } else {
+                                startActivity(new Intent(manageOtp.this, dashboard.class));
+                                Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Sign in Error", Toast.LENGTH_LONG).show();
