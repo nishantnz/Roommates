@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhoneVerification">
         <activity
+            android:name=".welcomeToRoomates"
+            android:exported="false" />
+        <activity
             android:name=".dashboard"
             android:exported="false" />
         <activity
