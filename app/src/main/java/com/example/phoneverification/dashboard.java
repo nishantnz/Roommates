@@ -18,16 +18,18 @@ public class dashboard extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
                     return true;
                 case R.id.profile:
-                    startActivity(new Intent(getApplicationContext(), profile.class));
+                    Intent intent = new Intent(getApplicationContext(), profile.class);
+                    intent.putExtra("source", "dashboard");
+                    startActivity(intent);
                     overridePendingTransition(22, 1);
                     return true;
                 case R.id.chat:
-                    //startActivity(new Intent(getApplicationContext(), logIn.class));
+                    startActivity(new Intent(getApplicationContext(), logIn.class));
                     overridePendingTransition(22, 0);
                     return true;
             }
