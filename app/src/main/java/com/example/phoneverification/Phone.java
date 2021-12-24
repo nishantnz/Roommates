@@ -14,6 +14,7 @@ import com.hbb20.CountryCodePicker;
 
 public class Phone extends AppCompatActivity {
 
+    public static String tOne;
     CountryCodePicker ccp;
     EditText t1;
     Button b1;
@@ -28,18 +29,18 @@ public class Phone extends AppCompatActivity {
         b1 = findViewById(R.id.b1);
         ccp = findViewById(R.id.ccp);
         ccp.registerCarrierNumberEditText(t1);
-        dialog1 = new ProgressDialog(this);
-        dialog1.setMessage("Loading..");
-        dialog1.setCancelable(false);
+//        dialog1 = new ProgressDialog(this);
+//        dialog1.setMessage("Loading..");
+//        dialog1.setCancelable(false);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tOne = t1.getText().toString().trim().replace(" ", "");
+                tOne = t1.getText().toString().trim().replace(" ", "");
                 if (tOne.length() != 10) {
                     Toast.makeText(getApplicationContext(), "Please Enter Valid Mobile Number", Toast.LENGTH_LONG).show();
                 } else {
-                    dialog1.show();
+                    // dialog1.show();
                     Intent intent = new Intent(Phone.this, manageOtp.class);
                     intent.putExtra("mobile", ccp.getFullNumberWithPlus());
                     Toast.makeText(getApplicationContext(), "Please wait until verified do not touch anywhere", Toast.LENGTH_LONG).show();

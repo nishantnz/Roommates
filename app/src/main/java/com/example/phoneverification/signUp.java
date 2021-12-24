@@ -21,6 +21,7 @@ import java.util.Objects;
 
 public class signUp extends AppCompatActivity {
 
+    public static String emailo;
     EditText emailOne;
     EditText passwordOne;
     EditText confirmPassword;
@@ -52,7 +53,7 @@ public class signUp extends AppCompatActivity {
             public void onClick(View v) {
 
                 //register user using firebase
-                String emailo = emailOne.getText().toString().trim();
+                emailo = emailOne.getText().toString().trim();
                 String passwordo = passwordOne.getText().toString().trim();
                 String confirmpasswordo = confirmPassword.getText().toString().trim();
 

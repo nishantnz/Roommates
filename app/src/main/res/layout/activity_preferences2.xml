@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="391dp"
+    android:layout_height="783dp"
+    android:background="#FFFFFF"
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainthi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".preferences2">
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="277dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:fadeScrollbars="true"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/set"
+            android:layout_width="385dp"
+            android:layout_height="121dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="#E15586"
+            android:fontFamily="@font/berkshire_swash"
+            android:gravity="center"
+            android:includeFontPadding="true"
+            android:shadowColor="#020202"
+            android:text="Set Your Preferences"
+            android:textColor="#1B1919"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/constrainthi"
+            app:layout_constraintStart_toStartOf="@id/constrainthi"
+            app:layout_constraintTop_toTopOf="@id/constrainthi" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="44dp"
+            android:fontFamily="@font/cantora_one"
+            android:includeFontPadding="false"
+            android:text="Gender"
+            android:textColor="#232222"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@id/constrainthi"
+            app:layout_constraintTop_toBottomOf="@+id/set" />
+
+        <RadioGroup
+            android:id="@+id/prefGender"
+            android:layout_width="296dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/constrainthi"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/set">
+
+            <RadioButton
+                android:id="@+id/prefMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/ic_baseline_male_24"
+                android:checked="true"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/prefFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/ic_baseline_female_24"
+                android:text="Female" />
+
+            <RadioButton
+                android:id="@+id/prefOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Other"
+                android:textColor="#616161" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="@font/cantora_one"
+            android:text="You Prefer"
+            android:textColor="#151414"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/prefOccupation"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/prefGender" />
+
+        <RadioGroup
+            android:id="@+id/prefOccupation"
+            android:layout_width="218dp"
+            android:layout_height="106dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginRight="42dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@id/constrainthi"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/prefGender">
+
+            <RadioButton
+                android:id="@+id/prefJobPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_business_center_24"
+                android:checked="true"
+                android:text="Job Person/Business Man" />
+
+            <RadioButton
+                android:id="@+id/prefStudent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_menu_book_24"
+                android:checked="true"
+                android:text="Student" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:fontFamily="@font/cantora_one"
+            android:text="You Prefer"
+            android:textColor="#1B1A1A"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/prefDrinkingHabits"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <RadioGroup
+            android:id="@+id/prefDrinkingHabits"
+            android:layout_width="190dp"
+            android:layout_height="151dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/prefOccupation"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/prefOccupation">
+
+            <RadioButton
+                android:id="@+id/prefAlcoholic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_wine_bar_24"
+                android:text="Alcoholic" />
+
+            <RadioButton
+                android:id="@+id/prefNonAlcoholic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_no_drinks_24"
+                android:checked="true"
+                android:text="Non-Alcoholic" />
+
+            <RadioButton
+                android:id="@+id/prefOccasionallyDrink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Occasionally" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="156dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:fontFamily="@font/cantora_one"
+            android:text="You Prefer"
+            android:textColor="#100F0F"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/prefSmokingHabits"
+            app:layout_constraintStart_toStartOf="@id/constrainthi"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <RadioGroup
+            android:id="@+id/prefSmokingHabits"
+            android:layout_width="200dp"
+            android:layout_height="139dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/prefDrinkingHabits"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/prefDrinkingHabits">
+
+            <RadioButton
+                android:id="@+id/prefSmoker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_smoking_rooms_24"
+                android:text="Smoker" />
+
+            <RadioButton
+                android:id="@+id/prefNonSmoker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@drawable/ic_baseline_smoke_free_24"
+                android:checked="true"
+                android:text="Non-Smoker" />
+
+            <RadioButton
+                android:id="@+id/prefOccasionalSmoker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Occasionally" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/setPref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="145dp"
+            android:layout_marginLeft="145dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="151dp"
+            android:layout_marginRight="151dp"
+            android:layout_marginBottom="30dp"
+            android:text="set preferences"
+            app:cornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/constrainthi"
+            app:layout_constraintEnd_toEndOf="@id/constrainthi"
+            app:layout_constraintHorizontal_bias="0.537"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/cantora_one"
+            android:text="Please enter Your Prefered Location"
+            android:textColor="#131313"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/prefSmokingHabits"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
+            app:layout_constraintTop_toBottomOf="@+id/prefSmokingHabits" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

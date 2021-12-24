@@ -94,8 +94,10 @@ public class manageOtp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             if (task.getResult().getAdditionalUserInfo().isNewUser()) {
-                                startActivity(new Intent(manageOtp.this, profile.class));
+                                Intent intent = new Intent(manageOtp.this, profile.class);
+                                intent.putExtra("source", "manageotp");
                                 Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
+                                startActivity(intent);
                                 finish();
                             } else {
                                 startActivity(new Intent(manageOtp.this, dashboard.class));

@@ -7,9 +7,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     Button emailButton, phoneButton;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         emailButton = findViewById(R.id.emailButton);
         phoneButton = findViewById(R.id.phoneButton);
+
+        if (user != null) {
+            Intent intent = new Intent(getApplicationContext(), dashboard.class);
+            startActivity(intent);
+            finish();
+        }
+
 
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
