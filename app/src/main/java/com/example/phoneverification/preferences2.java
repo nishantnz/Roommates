@@ -1,5 +1,6 @@
 package com.example.phoneverification;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,7 @@ public class preferences2 extends AppCompatActivity implements AdapterView.OnIte
     RadioButton prefMale, prefFemale, prefOther, prefJob, prefStudent, prefAlcoholic, prefNonAlcoholic, prefOccasionallyDrink, prefSmoker, prefNonSmoker, prefOccasionalSmoker;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     FirebaseAuth auth = FirebaseAuth.getInstance();
-
+    ProgressDialog dialog, dialog1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,10 @@ public class preferences2 extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Setting your preferences..");
+        dialog.setCancelable(false);
+
         setPreferences.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,12 +94,13 @@ public class preferences2 extends AppCompatActivity implements AdapterView.OnIte
                 String matchPref2 = prefGenderSelected.getText().toString().concat(prefOccupationSelected.getText().toString().concat(prefDrinkingSelected.getText().toString().concat(prefSmokingSelected.getText().toString().concat(location))));
 
                 userPreferencesStore userPreferences = new userPreferencesStore(matchPref2, uid, textGender, textOccupation, textDrinking, textSmoking, location);
-
+                dialog.show();
                 database.getReference()
                         .child("users preferences")
                         .child(uid)
                         .setValue(userPreferences)
                         .addOnSuccessListener(aVoid -> {
+                            dialog.dismiss();
                             Intent intent = new Intent(getApplicationContext(), dashboard.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(), "setup done", Toast.LENGTH_SHORT).show();
@@ -118,11 +124,17 @@ public class preferences2 extends AppCompatActivity implements AdapterView.OnIte
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("users preferences");
         String UserID = user.getUid();
+        dialog1 = new ProgressDialog(this);
+        dialog1.setMessage("Fetching your preferences..");
+        dialog1.setCancelable(false);
+        dialog1.show();
+
 
         reference.child(UserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    dialog1.dismiss();
 
                     if (snapshot.child("prefTextGender").getValue() != null) {
                         gender2 = snapshot.child("prefTextGender").getValue().toString();

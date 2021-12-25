@@ -76,6 +76,7 @@ public class logIn extends AppCompatActivity {
                             finishAffinity();
                         } else {
                             Toast.makeText(getApplicationContext(), "Error! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
                         }
 
                     }

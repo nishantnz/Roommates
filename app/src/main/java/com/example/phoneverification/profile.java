@@ -41,8 +41,6 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
     public static Uri uriSelectedImage;
     //    boolean imageUploaded = false;
     public static String name = "";
-    public static String emailS = "";
-    public static String phoneS = "";
     public static String locationS = "";
     public static Spinner spinner;
     String gender2 = "";
@@ -59,6 +57,7 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
     ActivityProfileBinding binding;
     // ActivityResultLauncher<String> mGetContent;
     FirebaseAuth auth;
+    FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     FirebaseDatabase database;
     FirebaseStorage storage;
     ProgressDialog dialog, dialog2;
@@ -209,8 +208,8 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
                             String userDetails1 = userBio.getText().toString();
                             String uid = auth.getUid();
                             String name = uName.getText().toString();
-                            String email = signUp.emailo;
-                            String phoneNumber = Phone.tOne;
+                            String email = firebaseUser.getEmail();
+                            String phoneNumber = firebaseUser.getPhoneNumber();
                             String location = spinner.getSelectedItem().toString();
                             String userPreciseLocation1 = preciseLocation.getText().toString();
                             String matchPref = genderSelected.getText().toString().concat(occupationSelected.getText().toString().concat(habitsSelected.getText().toString().concat(smokeSelected.getText().toString().concat(spinner.getSelectedItem().toString()))));
@@ -269,8 +268,8 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
                 String textHabits = habitsSelected.getText().toString();
                 String textRoomAvail = roomAvailSelected.getText().toString();
                 String textSmoke = smokeSelected.getText().toString();
-                String email = signUp.emailo;
-                String phoneNumber = Phone.tOne;
+                String email = firebaseUser.getEmail();
+                String phoneNumber = firebaseUser.getPhoneNumber();
                 String location = spinner.getSelectedItem().toString();
                 String userPreciseLocation1 = preciseLocation.getText().toString();
                 String matchPref = genderSelected.getText().toString().concat(occupationSelected.getText().toString().concat(habitsSelected.getText().toString().concat(smokeSelected.getText().toString().concat(spinner.getSelectedItem().toString()))));
@@ -294,7 +293,7 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
                         .child(uid)
                         .setValue(user)
                         .addOnSuccessListener(aVoid -> {
-                            //dialog.dismiss();
+                            dialog.dismiss();
                             String source = getIntent().getStringExtra("source");
                             Intent intent = new Intent(getApplicationContext(), source.equals("signup") || source.equals("manageotp") ? welcomeToRoomates.class : dashboard.class);
                             startActivity(intent);
@@ -364,12 +363,6 @@ public class profile extends AppCompatActivity implements AdapterView.OnItemSele
                     }
                     if (snapshot.child("preciseLocation").getValue() != null) {
                         preciseLocationS = snapshot.child("preciseLocation").getValue().toString();
-                    }
-                    if (snapshot.child("email").getValue() != null) {
-                        emailS = snapshot.child("email").getValue().toString();
-                    }
-                    if (snapshot.child("phoneNumber").getValue() != null) {
-                        phoneS = snapshot.child("phoneNumber").getValue().toString();
                     }
 
                     uName.setText(Objects.requireNonNull(name));

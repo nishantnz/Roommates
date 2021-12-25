@@ -1,9 +1,11 @@
 package com.example.phoneverification;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,6 +77,7 @@ public class ProfileDisplayFrag extends Fragment {
         TextView roomAvailHold = view.findViewById(R.id.roomAvailProf);
         TextView location = view.findViewById(R.id.locationInFragDisplay);
         TextView preciseLocation = view.findViewById(R.id.preciseLocationDisplayFrag);
+        Button chatButton = view.findViewById(R.id.chatButton);
 
         nameHold.setText(name);
         ageHold.setText(age);
@@ -87,6 +90,14 @@ public class ProfileDisplayFrag extends Fragment {
         location.setText(locationS);
         preciseLocation.setText(preciseLocationS);
         Glide.with(getContext()).load(profileImage).into(imageHolder);
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), chatMainactivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

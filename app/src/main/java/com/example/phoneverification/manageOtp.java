@@ -57,12 +57,12 @@ public class manageOtp extends AppCompatActivity {
                 b2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         if (t2.getText().toString().isEmpty())
                             Toast.makeText(getApplicationContext(), "Blank Message Error", Toast.LENGTH_LONG).show();
                         else if (t2.getText().toString().length() != 6)
                             Toast.makeText(getApplicationContext(), "Invalid OTP", Toast.LENGTH_LONG).show();
                         else {
-                            //dialog.show();
                             PhoneAuthCredential credential = PhoneAuthProvider.getCredential(otpid, t2.getText().toString());
                             signInWithPhoneAuthCredential(credential);
                         }
@@ -93,13 +93,16 @@ public class manageOtp extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            dialog.show();
                             if (task.getResult().getAdditionalUserInfo().isNewUser()) {
+                                dialog.dismiss();
                                 Intent intent = new Intent(manageOtp.this, profile.class);
                                 intent.putExtra("source", "manageotp");
                                 Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
                                 startActivity(intent);
                                 finish();
                             } else {
+                                dialog.dismiss();
                                 startActivity(new Intent(manageOtp.this, dashboard.class));
                                 Toast.makeText(getApplicationContext(), "Successfully Verified", Toast.LENGTH_LONG).show();
                                 finish();
@@ -107,6 +110,7 @@ public class manageOtp extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(getApplicationContext(), "Sign in Error", Toast.LENGTH_LONG).show();
+                            dialog.dismiss();
                         }
                     }
                 });

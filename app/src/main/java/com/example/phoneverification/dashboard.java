@@ -1,5 +1,6 @@
 package com.example.phoneverification;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -15,6 +16,7 @@ public class dashboard extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     RecyclerView recview;
     CardView userCard;
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +28,27 @@ public class dashboard extends AppCompatActivity {
         userCard = findViewById(R.id.userCard);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new Welcome()).commit();
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Loading..");
+        dialog.setCancelable(false);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
+            dialog.show();
             switch (item.getItemId()) {
                 case R.id.home:
                     getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new Welcome()).commit();
+                    dialog.dismiss();
                     return true;
                 case R.id.profile:
-                    // getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new profileFragEmailId()).commit();
-                    Intent intent = new Intent(getApplicationContext(), profile.class);
-                    intent.putExtra("source", "dashboard");
-                    startActivity(intent);
-                    overridePendingTransition(0, 0);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.wrapper, new profileFragEmailId()).commit();
+                    dialog.dismiss();
+//                    Intent intent = new Intent(getApplicationContext(), profile.class);
+//                    intent.putExtra("source", "dashboard");
+//                    startActivity(intent);
+//                    overridePendingTransition(0, 0);
                     return true;
                 case R.id.chat:
+                    dialog.dismiss();
                     startActivity(new Intent(getApplicationContext(), logIn.class));
                     overridePendingTransition(0, 0);
                     return true;

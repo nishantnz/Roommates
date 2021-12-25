@@ -33,6 +33,8 @@ public class recycleview extends FirebaseRecyclerAdapter<ReadWriteUserDetails, r
 
     @Override
     protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull ReadWriteUserDetails userS) {
+
+
         holder.name.setText(userS.getName());
         holder.age.setText(userS.getAge());
         holder.location.setText(userS.getLocation());
@@ -78,6 +80,7 @@ public class recycleview extends FirebaseRecyclerAdapter<ReadWriteUserDetails, r
         CircleImageView dpimage;
         TextView name, age, location;
         Button viewProfile;
+
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);

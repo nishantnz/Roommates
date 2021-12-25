@@ -1,5 +1,6 @@
 package com.example.phoneverification;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +29,7 @@ public class signUp extends AppCompatActivity {
     Button register;
     TextView logIn;
     FirebaseAuth sAuth;
+    ProgressDialog dialog;
 
 
     @Override
@@ -40,6 +42,10 @@ public class signUp extends AppCompatActivity {
         register = findViewById(R.id.register);
         logIn = findViewById(R.id.logIn);
         sAuth = FirebaseAuth.getInstance();
+
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Signing up..");
+        dialog.setCancelable(false);
 
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +80,12 @@ public class signUp extends AppCompatActivity {
                     return;
                 }
 
+                dialog.show();
                 sAuth.createUserWithEmailAndPassword(emailo, confirmpasswordo).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            dialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Thanks for Signing Up", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(signUp.this, profile.class);
                             intent.putExtra("source", "signup");
@@ -85,6 +93,7 @@ public class signUp extends AppCompatActivity {
                             finishAffinity();
                         } else {
                             Toast.makeText(getApplicationContext(), "Error! " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
                         }
                     }
 

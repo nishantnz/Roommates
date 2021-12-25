@@ -67,20 +67,6 @@ public class Welcome extends Fragment {
         recycle.setLayoutManager(new LinearLayoutManager(getContext()));
         prefButton = view.findViewById(R.id.prefButton);
 
-
-//
-//        String uid = auth.getUid();
-//        String location = profile.locationS;
-//        locationSetter locset = new locationSetter(location, uid);
-//
-//        database.getReference()
-//                .child("locations")
-//                .child(uid)
-//                .setValue(locset)
-//                .addOnSuccessListener(aVoid -> {
-//                    Toast.makeText(getContext(), "setup done", Toast.LENGTH_SHORT).show();
-//                });
-//
         prefButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +91,6 @@ public class Welcome extends Fragment {
             adapter = new recycleview(options);
             recycle.setAdapter(adapter);
         }
-
         return view;
     }
 
@@ -114,25 +99,6 @@ public class Welcome extends Fragment {
     public void onStart() {
         super.onStart();
         adapter.startListening();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("locations");
-//        String UserID = user.getUid();
-//
-//        reference.child(UserID).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.child("location").getValue() != null) {
-//                    locationYo = snapshot.child("location").getValue().toString();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
     }
 
     @Override
