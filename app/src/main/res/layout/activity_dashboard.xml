@@ -5,7 +5,7 @@
     android:id="@+id/wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#949AC6"
+    android:background="#F8F8F8"
     tools:context=".dashboard">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,7 +17,10 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="450dp"
             android:layout_height="63dp"
-            android:background="#949AC6"
+            android:clipToPadding="false"
+            app:backgroundTint="#E5E6EA"
+            app:elevation="20dp"
+            app:itemRippleColor="#8BD8C9"
             app:layout_constraintBottom_toBottomOf="@id/constraint"
             app:layout_constraintEnd_toEndOf="@id/constraint"
             app:layout_constraintStart_toStartOf="@id/constraint"

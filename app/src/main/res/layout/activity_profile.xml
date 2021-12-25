@@ -35,12 +35,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="29dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="36dp"
             android:text="Set your profile image"
             android:textColor="#120101"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/profileImage"
-            app:layout_constraintHorizontal_bias="0.557"
+            app:layout_constraintHorizontal_bias="0.327"
             app:layout_constraintStart_toStartOf="@+id/profileImage"
             app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
@@ -356,14 +356,10 @@
             android:id="@+id/smokeGrp"
             android:layout_width="380dp"
             android:layout_height="51dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginLeft="17dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="13dp"
-            android:layout_marginRight="13dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7">
 
             <RadioButton
